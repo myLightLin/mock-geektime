@@ -13,3 +13,5 @@ npm run bff
 ```
 ## 页面 URL
 - http://localhost:3000/detail/?columnid=233 详情页
+- http://localhost:3000/play 播放页
+- http://localhost:3000/list 列表页，使用 react 进行服务端渲染
