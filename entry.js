@@ -4,14 +4,6 @@ const url = require('url')
 
 const app = new koa;
 
-/**
- * 由于很多同学打开demo的时候习惯性没加最后的/
- * 导致页面在访问css或者js内容的时候，会因为拼错链接而返回404
- * 所以这里加上一个判断，没有以/结尾的时候要进行重定向。
- * 
- * 当然，在koa-mount进行路由匹配的时候直接匹配 /download/ 也是可以避免出现错误页面的
- * 但是为了用户考虑，最好就是帮助用户修正错误。
- */
 app.use(async (ctx, next)=> {
     const parsedUrl = url.parse(ctx.url);
     if (
@@ -33,7 +25,19 @@ app.use(
     mount('/detail', require('./detail/index'))
 )
 
+app.use(
+    mount('/download', require('./download/index'))
+)
 
-app.listen(3002, ()=> {
-    console.log('listened 3002')
+app.use(
+    mount('/play', require('./play/index'))
+)
+
+app.use(
+    mount('/list', require('./list/node/index'))
+)
+
+
+app.listen(3000, ()=> {
+    console.log('listened 3000')
 })
