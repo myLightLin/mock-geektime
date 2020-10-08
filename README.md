@@ -11,3 +11,5 @@ npm i
 npm run microservice
 npm run bff
 ```
+## 页面 URL
+- http://localhost:3000/detail/?columnid=233 详情页
